@@ -1,0 +1,11 @@
+# db-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guacamole-db-config
+  namespace: guacamole
+data:
+  POSTGRES_HOSTNAME: "192.168.64.30"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DATABASE: "guacamole_db"
+  POSTGRES_USERNAME: "postgres"
