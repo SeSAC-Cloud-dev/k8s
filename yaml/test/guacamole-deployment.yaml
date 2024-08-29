@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guacamole
+  namespace: guacamole
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: guacamole
+  template:
+    metadata:
+      labels:
+        app: guacamole
+    spec:
+      containers:
+      - name: guacamole
+        image: guacamole/guacamole
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: guacamole-db-config
+        - secretRef:
+            name: guacamole-db-secret
+        env:
+        - name: POSTGRESQL_HOSTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: guacamole-db-config
+              key: POSTGRESQL_HOSTNAME
+        - name: POSTGRESQL_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: guacamole-db-config
+              key: POSTGRESQL_PORT
+        - name: POSTGRESQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: guacamole-db-config
+              key: POSTGRESQL_DATABASE
+        - name: POSTGRESQL_USER
+          valueFrom:
+            configMapKeyRef:
+              name: guacamole-db-config
+              key: POSTGRESQL_USER
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-db-secret
+              key: POSTGRESQL_PASSWORD
+        - name: GUACD_HOSTNAME
+          value: guacd-service
+        - name: GUACD_PORT
+          value: "4822"
+        volumeMounts:
+        - name: guacamole-redis-volume
+          mountPath: /etc/guacamole/extensions/redis.properties
+          subPath: redis.properties
+      volumes:
+      - name: guacamole-redis-volume
+        configMap:
+          name: guacamole-redis-config

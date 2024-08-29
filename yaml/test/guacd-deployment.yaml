@@ -5,7 +5,7 @@ metadata:
   name: guacd
   namespace: guacamole
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: guacd
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: guacd
-        image: guacamole/guacd          
+        image: guacamole/guacd
         imagePullPolicy: Always
         ports:
         - containerPort: 4822

@@ -11,4 +11,3 @@ spec:
     port: 4822
     targetPort: 4822
   type: ClusterIP
-

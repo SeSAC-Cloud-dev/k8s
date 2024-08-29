@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guacamole-redis-config
+  namespace: guacamole
+data:
+  REDIS_HOSTNAME: "redis-service"  # Redis 서비스 이름
+  REDIS_PORT: "6379"               # Redis 포트 번호
