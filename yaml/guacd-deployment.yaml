@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: guacd
-        image: hjju98/guacd-arm64          
+        image: guacamole/guacd          
         imagePullPolicy: Always
         ports:
         - containerPort: 4822

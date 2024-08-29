@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guacamole-db-config
+  namespace: guacamole
+data:
+  POSTGRESQL_HOSTNAME: "eks-junkie-rds-postgresql.cxs2e2qiwk1f.ap-northeast-2.rds.amazonaws.com"
+  POSTGRESQL_PORT: "5432"
+  POSTGRESQL_DATABASE: "guacamole_db"
+  POSTGRESQL_USER: "postgres"
