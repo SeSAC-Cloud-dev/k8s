@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mattermost-db-config
+  namespace: mattermost
+data:
+  POSTGRESQL_HOSTNAME: "mattermost.cxs2e2qiwk1f.ap-northeast-2.rds.amazonaws.com"  # 엔드포인트 설정
+  POSTGRESQL_PORT: "5432"
+  POSTGRESQL_DATABASE: "mattermost"
+  POSTGRESQL_USER: "postgres"
+  MM_SQLSETTINGS_DATASOURCE: "postgres://postgres:qwer1234@mattermost.cxs2e2qiwk1f.ap-northeast-2.rds.amazonaws.com/mattermost"

@@ -11,4 +11,3 @@ spec:
     port: 8065
     targetPort: 8065
   type: ClusterIP
-
