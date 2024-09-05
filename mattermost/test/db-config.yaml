@@ -8,3 +8,5 @@ data:
   POSTGRESQL_PORT: "5432"
   POSTGRESQL_DATABASE: "mattermost"
   POSTGRESQL_USER: "mmuser"
+  MM_SQLSETTINGS_DATASOURCE: "postgres://mmuser:qwer1234@eks-junkie-rds-postgresql.cxs2e2qiwk1f.ap-northeast-2.rds.amazonaws.com/mattermost"
+

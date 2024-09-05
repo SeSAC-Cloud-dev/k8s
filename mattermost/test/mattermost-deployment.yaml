@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mattermost
-        image: 214346124741.dkr.ecr.ap-northeast-2.amazonaws.com/cloudnexus/mattermost:34
+        image: 214346124741.dkr.ecr.ap-northeast-2.amazonaws.com/cloudnexus/mattermost:40
         imagePullPolicy: Always
         ports:
         - containerPort: 8065
@@ -25,28 +25,8 @@ spec:
         - secretRef:
             name: mattermost-db-secret
         env:
-        - name: POSTGRESQL_HOSTNAME
+        - name: MM_SQLSETTINGS_DATASOURCE
           valueFrom:
             configMapKeyRef:
               name: mattermost-db-config
-              key: POSTGRESQL_HOSTNAME
-        - name: POSTGRESQL_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: mattermost-db-config
-              key: POSTGRESQL_PORT
-        - name: POSTGRESQL_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              name: mattermost-db-config
-              key: POSTGRESQL_DATABASE
-        - name: POSTGRESQL_USER
-          valueFrom:
-            configMapKeyRef:
-              name: mattermost-db-config
-              key: POSTGRESQL_USER
-        - name: POSTGRESQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mattermost-db-secret
-              key: POSTGRESQL_PASSWORD
+              key: MM_SQLSETTINGS_DATASOURCE
