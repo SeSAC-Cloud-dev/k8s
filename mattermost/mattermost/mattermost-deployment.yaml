@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mattermost
-        image: 214346124741.dkr.ecr.ap-northeast-2.amazonaws.com/cloudnexus/mattermost:42
+        image: 214346124741.dkr.ecr.ap-northeast-2.amazonaws.com/cloudnexus/mattermost:40
         imagePullPolicy: Always
         ports:
         - containerPort: 8065
